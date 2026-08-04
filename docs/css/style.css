@@ -103,7 +103,8 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
   letter-spacing:.07em;line-height:1.08;color:#faf7f0;text-shadow:0 2px 26px rgba(0,0,0,.5)}
 .hero .year{color:#f2b096;font-style:italic;font-weight:500;letter-spacing:.02em}
 @media(max-width:700px){.hero img.logo{position:static;height:96px;width:auto;display:block;
-  align-self:flex-end;margin:34px 18px 0 0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4))}}
+  align-self:flex-end;margin:56px 18px 0 0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4))}}
+@media(max-width:700px) and (min-height:740px){.hero img.logo{margin-top:96px}}
 .hero .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
   color:#faf7f0;text-decoration:none;font-size:1.5rem;opacity:.85;animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
