@@ -423,6 +423,7 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
   radial-gradient(70% 70% at 80% 90%, rgba(56,115,92,.14), transparent), var(--paper)}
 .ccard .cimg img{position:absolute;inset:0;width:100%;height:100%;max-width:none;
   object-fit:cover;object-position:center 22%;display:block}
+.ccard .cimg img.photo{object-position:center 30%}
 .ccard .cimg.noimg img{display:none}
 .ccard .cimg.noimg::before{content:attr(data-initials);position:absolute;inset:0;display:flex;
   align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;
