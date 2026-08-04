@@ -311,19 +311,16 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .yt.nothumb.on{aspect-ratio:16/9}
 .embed-cap{font-size:.85rem;color:var(--muted);margin:8px 0 4px}
-.pullquote{margin:28px 0 26px;padding:0;border:0;text-align:center;position:relative}
-.pullquote::before{content:"";display:block;width:34px;height:1px;background:var(--orange);
-  opacity:.55;margin:0 auto 16px}
-.pullquote blockquote{font-family:var(--serif);font-size:clamp(1.02rem,1.32vw,1.2rem);font-weight:400;
-  line-height:1.72;color:var(--head);letter-spacing:.005em;max-width:30em;margin:0 auto}
-.pullquote figcaption{margin-top:11px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--muted);font-weight:600}
+.pullquote{margin:14px 0 24px;padding:0;border:0;text-align:left}
+.pullquote blockquote{font-family:var(--serif);font-size:clamp(.95rem,1.18vw,1.08rem);font-weight:400;
+  line-height:1.7;color:var(--head);letter-spacing:.006em;max-width:34em;margin:0}
+.pullquote figcaption{margin-top:12px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;line-height:2}
 .pullquote figcaption a.src{color:inherit;text-decoration:none;border-bottom:1px solid rgba(121,113,95,.35);
   padding-bottom:2px;transition:color .3s,border-color .3s}
 .pullquote figcaption a.src:hover{color:var(--orange);border-bottom-color:var(--orange)}
-@media(max-width:600px){.pullquote{margin:24px 0 22px}
-  .pullquote::before{margin-bottom:14px}
-  .pullquote figcaption{font-size:.58rem;letter-spacing:.2em}}
+@media(max-width:600px){.pullquote{margin:12px 0 20px}
+  .pullquote figcaption{font-size:.55rem;letter-spacing:.18em}}
 
 /* sessions: editorial columns */
 .evrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0}
@@ -392,6 +389,10 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 .cpage .k{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
 .cpage h1{font-family:var(--serif);font-size:clamp(1.31rem,3vw,1.84rem);font-weight:600;letter-spacing:-.022em;color:var(--head);margin:14px 0 4px;line-height:1.28}
 .cpage .cdates{color:var(--muted);font-size:1.05rem;margin-bottom:30px}
+figure.facsimile{margin:28px 0 6px;max-width:520px}
+figure.facsimile img{width:100%;display:block;border:1px solid var(--line);border-radius:3px;
+  box-shadow:0 20px 46px rgba(24,21,16,.16)}
+figure.facsimile figcaption{font-size:.76rem;color:var(--muted);margin-top:14px;line-height:1.65}
 figure.promo{margin:26px 0 34px}
 figure.promo video{width:100%;display:block;border-radius:10px;background:#0e141c;
   border:1px solid var(--line);box-shadow:0 18px 44px rgba(24,21,16,.16)}
