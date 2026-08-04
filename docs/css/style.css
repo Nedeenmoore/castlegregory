@@ -311,15 +311,18 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .yt.nothumb.on{aspect-ratio:16/9}
 .embed-cap{font-size:.85rem;color:var(--muted);margin:8px 0 4px}
-.pullquote{margin:44px 0 42px;padding:0;border:0;text-align:center;position:relative}
-.pullquote::before{content:"";display:block;width:38px;height:1px;background:var(--orange);
-  opacity:.55;margin:0 auto 26px}
+.pullquote{margin:28px 0 26px;padding:0;border:0;text-align:center;position:relative}
+.pullquote::before{content:"";display:block;width:34px;height:1px;background:var(--orange);
+  opacity:.55;margin:0 auto 16px}
 .pullquote blockquote{font-family:var(--serif);font-size:clamp(1.02rem,1.32vw,1.2rem);font-weight:400;
   line-height:1.72;color:var(--head);letter-spacing:.005em;max-width:30em;margin:0 auto}
-.pullquote figcaption{margin-top:18px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
+.pullquote figcaption{margin-top:11px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
   color:var(--muted);font-weight:600}
-@media(max-width:600px){.pullquote{margin:34px 0 32px}
-  .pullquote::before{margin-bottom:20px}
+.pullquote figcaption a.src{color:inherit;text-decoration:none;border-bottom:1px solid rgba(121,113,95,.35);
+  padding-bottom:2px;transition:color .3s,border-color .3s}
+.pullquote figcaption a.src:hover{color:var(--orange);border-bottom-color:var(--orange)}
+@media(max-width:600px){.pullquote{margin:24px 0 22px}
+  .pullquote::before{margin-bottom:14px}
   .pullquote figcaption{font-size:.58rem;letter-spacing:.2em}}
 
 /* sessions: editorial columns */
