@@ -20,8 +20,20 @@ a{color:inherit}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
 
 /* header */
+:root{--navh:99px}
+@media(max-width:560px){:root{--navh:71px}}
 header{border-bottom:1px solid var(--line);background:rgba(250,247,240,.88);backdrop-filter:blur(10px);
   position:sticky;top:0;z-index:50}
+/* home page: no bar over the photograph, only the three lines. the header floats,
+   and earns its background back once you have scrolled past the hero. */
+body.home header{position:fixed;left:0;right:0;top:0;background:none;backdrop-filter:none;
+  border-bottom:0;transition:background .35s,border-color .35s}
+body.home header .brand{opacity:0;pointer-events:none;transition:opacity .35s}
+body.home .burger span{background:#1b2331;filter:drop-shadow(0 1px 5px rgba(250,247,240,.9))}
+body.home.scrolled header{background:rgba(250,247,240,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+body.home.scrolled header .brand{opacity:1;pointer-events:auto}
+body.home.scrolled .burger span{background:var(--ink);filter:none}
 /* the header is sticky, so in-page anchors need room to clear it */
 #about,#events,#musicians,#contact,#visit{scroll-margin-top:116px}
 @media(max-width:700px){#about,#events,#musicians,#contact,#visit{scroll-margin-top:88px}}
@@ -103,6 +115,10 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 .hero .hero-inner{padding:60px 28px;transform:translateY(-36px)} /* laptop: text sits lower */
 @media(max-width:700px){.hero{flex-direction:column;align-items:stretch;justify-content:flex-start}
   .hero .hero-inner{transform:none;padding:20px 24px 0}} /* phone: text rides higher */
+/* home: the hero grows by exactly the height of the vanished bar, so the foot of the
+   photograph lands where it always did and the crop simply narrows. */
+body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
+@media(max-width:700px){body.home .hero .hero-inner{padding-top:calc(var(--navh) + 20px)}}
 .hero img.logo{position:absolute;right:7%;bottom:calc(9% + 48px);height:128px;margin:0;
   filter:drop-shadow(0 10px 30px rgba(0,0,0,.45))}
 .hero .eyebrow{font-size:clamp(.72rem,1.1vw,.9rem);letter-spacing:.3em;text-transform:uppercase;color:#38414f;
@@ -111,15 +127,19 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 .hero h1{font-family:"Bodoni Moda","Georgia",serif;font-size:clamp(2.2rem,4.8vw,3.8rem);font-weight:500;
   letter-spacing:.07em;line-height:1.08;color:#1b2331;text-shadow:0 1px 20px rgba(250,247,240,.62)}
 .hero .year{color:#8c4a2f;font-style:italic;font-weight:500;letter-spacing:.02em}
+/* short phones have no room between the strapline and the water, so the logo stays below the text */
 @media(max-width:700px){.hero img.logo{position:static;height:96px;width:auto;display:block;
   align-self:flex-end;margin:56px 18px 0 0;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
-@media(max-width:700px) and (min-height:740px){.hero img.logo{margin-top:96px}}
+/* taller phones: the logo sits on the mountain, clear of the water. the waterline drifts as the
+   photograph pans, so this is measured against its highest point, never its average. */
+@media(max-width:700px) and (min-height:740px){.hero img.logo{position:absolute;right:18px;left:auto;
+  bottom:auto;top:calc(60.5% - 120px);margin:0}}
 .hero .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
   color:#1b2331;text-decoration:none;font-size:1.5rem;opacity:.62;animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 @media (prefers-reduced-motion: reduce){.hero .scrollcue{animation:none}}
 @media(min-width:701px){
-  .hero img.logo{right:7%;left:auto;top:10%;bottom:auto;
+  .hero img.logo{left:7%;right:auto;top:12%;bottom:auto;
     filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}
 }
 
