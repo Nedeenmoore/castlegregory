@@ -109,6 +109,20 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
   color:#faf7f0;text-decoration:none;font-size:1.5rem;opacity:.85;animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 @media (prefers-reduced-motion: reduce){.hero .scrollcue{animation:none}}
+/* laptop and desktop only: the pale beach photograph, carried by dark type.
+   phones deliberately keep the original image and light type until a phone crop exists. */
+@media(min-width:701px){
+  .hero::before{background-image:url("../img/dingle-wide.jpg");background-position:center 55%;
+    opacity:.92;filter:saturate(1)}
+  .hero::after{background:
+    radial-gradient(66% 62% at 50% 46%, rgba(250,247,240,.42) 0%, rgba(250,247,240,.18) 55%, rgba(250,247,240,0) 80%)}
+  .hero h1{color:#1b2331;text-shadow:0 1px 20px rgba(250,247,240,.62)}
+  .hero .year{color:#8c4a2f}
+  .hero .eyebrow{color:#38414f;text-shadow:0 1px 14px rgba(250,247,240,.7)}
+  .hero img.logo{right:7%;left:auto;top:10%;bottom:auto;
+    filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}
+  .hero .scrollcue{color:#1b2331;opacity:.62}
+}
 
 /* intro band under the hero */
 .intro{position:relative;overflow:hidden;padding:58px 0 66px;text-align:center;
