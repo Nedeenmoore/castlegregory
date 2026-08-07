@@ -2,9 +2,10 @@
 :root{
   --ink:#181510; --ink-soft:#3d382f; --muted:#79715f; --paper:#faf7f0; --card:#fffdf8;
   --line:#e8e1d3; --line-soft:#efe9dd; --head:#605a4b;
-  /* --orange is now the teal of the water in the hero photograph, deepened enough to read as ink.
-     the name is kept so that every existing rule picks the change up. */
-  --orange:#40676b; --blue:#39749e; --green:#38735c; --gold:#a98b3f;
+  /* the teal of the water in the hero photograph, deepened enough to read as ink.
+     the old --orange and --blue both point at it, so every existing rule picks it up. */
+  --sea:#40676b; --orange:var(--sea); --blue:var(--sea);
+  --green:#38735c; --gold:#a98b3f;
   --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
@@ -26,16 +27,20 @@ a{color:inherit}
 @media(max-width:560px){:root{--navh:71px}}
 header{border-bottom:1px solid var(--line);background:rgba(250,247,240,.88);backdrop-filter:blur(10px);
   position:sticky;top:0;z-index:50}
-/* home page: no bar over the photograph, only the three lines. the header floats,
-   and earns its background back once you have scrolled past the hero. */
-body.home header{position:fixed;left:0;right:0;top:0;background:none;backdrop-filter:none;
+/* pages that open on a photograph: no bar, only the three lines. the header floats,
+   and earns its background back once you have scrolled past the opening image. */
+body.floatnav header{position:fixed;left:0;right:0;top:0;background:none;backdrop-filter:none;
   border-bottom:0;transition:background .35s,border-color .35s}
-body.home header .brand{opacity:0;pointer-events:none;transition:opacity .35s}
-body.home .burger span{background:#1b2331;filter:drop-shadow(0 1px 5px rgba(250,247,240,.9))}
-body.home.scrolled header{background:rgba(250,247,240,.88);backdrop-filter:blur(10px);
+body.floatnav header .brand{opacity:0;pointer-events:none;transition:opacity .35s}
+/* the three lines sit a fixed half inch in from the edge, whatever the screen width,
+   rather than following the 1100px content column inward */
+body.floatnav .nav{max-width:none;padding:26px 48px;justify-content:space-between}
+@media(max-width:560px){body.floatnav .nav{padding:12px 24px}}
+body.floatnav .burger span{background:#1b2331;filter:drop-shadow(0 1px 5px rgba(250,247,240,.9))}
+body.floatnav.scrolled header{background:rgba(250,247,240,.88);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line)}
-body.home.scrolled header .brand{opacity:1;pointer-events:auto}
-body.home.scrolled .burger span{background:var(--ink);filter:none}
+body.floatnav.scrolled header .brand{opacity:1;pointer-events:auto}
+body.floatnav.scrolled .burger span{background:var(--ink);filter:none}
 /* the header is sticky, so in-page anchors need room to clear it */
 #about,#events,#musicians,#contact,#visit{scroll-margin-top:116px}
 @media(max-width:700px){#about,#events,#musicians,#contact,#visit{scroll-margin-top:88px}}
@@ -183,7 +188,7 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
     linear-gradient(to bottom, rgba(250,247,240,.26), rgba(250,247,240,0) 24%, rgba(250,247,240,0) 76%, rgba(250,247,240,.26))}}
 @media(prefers-reduced-motion:reduce){.intro-vid{display:none;animation:none}}
 .intro p.tag{margin:0 auto;font-size:1.12rem;color:var(--ink-soft);max-width:36em}
-.intro p.tag a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(57,116,158,.35)}
+.intro p.tag a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(64,103,107,.35)}
 .intro p.tag a:hover{color:var(--orange);border-color:var(--orange)}
 .intro .dates{margin-top:30px;display:inline-block;font-size:.78rem;letter-spacing:.26em;
   text-transform:uppercase;color:var(--green);font-weight:600}
@@ -240,6 +245,16 @@ section{padding:76px 0}
 .ehero h1{font-family:var(--serif);font-size:clamp(1.5rem,3.3vw,2.18rem);font-weight:600;letter-spacing:-.022em;color:var(--head);margin:12px 0 8px;line-height:1.28}
 .ehero .meta{color:var(--muted);font-size:1.04rem}
 .ehero .blurb{max-width:46em;margin-top:20px;color:var(--ink-soft)}
+/* an opening block on a floating-nav page keeps its text where it was: the vanished bar
+   becomes clear space for the three lines rather than a shift upward */
+body.floatnav .ehero-open{padding-top:calc(72px + var(--navh));border-bottom:0}
+/* the peninsula, full bleed, under the opening text */
+.visitband{position:relative;width:100%;height:min(46vh,430px);overflow:hidden;background:var(--paper)}
+.visitband img{width:100%;height:100%;object-fit:cover;object-position:center 46%;display:block}
+.visitband::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(to bottom, rgba(250,247,240,.55) 0%, rgba(250,247,240,0) 16%,
+                  rgba(250,247,240,0) 84%, rgba(250,247,240,.55) 100%)}
+@media(max-width:700px){.visitband{height:min(38vh,320px)}}
 .facts{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
 .fact{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 18px;font-size:.9rem}
 .fact b{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
@@ -404,7 +419,7 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 .venue h3{font-family:var(--sans);font-size:1.22rem;font-weight:600;letter-spacing:-.01em;
   color:var(--head);line-height:1.38;margin:11px 0 0}
 .venue .vtext{margin-top:13px;color:var(--ink-soft);font-size:.93rem;line-height:1.7;flex:1}
-.venue .vtext a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid rgba(57,116,158,.4)}
+.venue .vtext a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid rgba(64,103,107,.4)}
 .venue .vtext a:hover{color:var(--orange);border-color:var(--orange)}
 .venue .vgo{margin-top:20px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .venue .vgo a{color:var(--blue);text-decoration:none;transition:color .2s,letter-spacing .25s}
