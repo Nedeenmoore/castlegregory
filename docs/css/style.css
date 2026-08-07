@@ -2,7 +2,9 @@
 :root{
   --ink:#181510; --ink-soft:#3d382f; --muted:#79715f; --paper:#faf7f0; --card:#fffdf8;
   --line:#e8e1d3; --line-soft:#efe9dd; --head:#605a4b;
-  --orange:#d4502a; --blue:#39749e; --green:#38735c; --gold:#a98b3f;
+  /* --orange is now the teal of the water in the hero photograph, deepened enough to read as ink.
+     the name is kept so that every existing rule picks the change up. */
+  --orange:#40676b; --blue:#39749e; --green:#38735c; --gold:#a98b3f;
   --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
@@ -129,17 +131,21 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
 .hero .year{color:#8c4a2f;font-style:italic;font-weight:500;letter-spacing:.02em}
 /* short phones have no room between the strapline and the water, so the logo stays below the text */
 @media(max-width:700px){.hero img.logo{position:static;height:96px;width:auto;display:block;
-  align-self:flex-end;margin:56px 18px 0 0;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
+  align-self:flex-start;margin:56px 0 0 18px;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
 /* taller phones: the logo sits on the mountain, clear of the water. the waterline drifts as the
    photograph pans, so this is measured against its highest point, never its average. */
-@media(max-width:700px) and (min-height:740px){.hero img.logo{position:absolute;right:18px;left:auto;
+@media(max-width:700px) and (min-height:740px){.hero img.logo{position:absolute;left:18px;right:auto;
   bottom:auto;top:calc(60.5% - 120px);margin:0}}
+/* phone: the strapline breaks after "music" so the place name stays whole */
+.phbr{display:none}
+@media(max-width:700px){.phbr{display:block}}
 .hero .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
   color:#1b2331;text-decoration:none;font-size:1.5rem;opacity:.62;animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 @media (prefers-reduced-motion: reduce){.hero .scrollcue{animation:none}}
 @media(min-width:701px){
-  .hero img.logo{left:7%;right:auto;top:12%;bottom:auto;
+  /* a true corner: the same distance in from the left as down from the top */
+  .hero img.logo{left:5vw;right:auto;top:5vw;bottom:auto;
     filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}
 }
 
