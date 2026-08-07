@@ -4,7 +4,9 @@
   --line:#e8e1d3; --line-soft:#efe9dd; --head:#605a4b;
   /* the teal of the water in the hero photograph. --sea is the quiet one, for labels and
      marks you cannot click; --sea-lit is brighter and more saturated, for anything you can. */
-  --sea:#40676b; --sea-lit:#0b7a86; --sea-tile:#4a767c;
+  --sea:#40676b; --sea-lit:#0b7a86;
+  /* the tile ribbon: sampled from the foreground sand of the hero photograph */
+  --sea-tile:#7a685e;
   --orange:var(--sea); --blue:var(--sea-lit);
   --green:#38735c; --gold:#a98b3f;
   --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
