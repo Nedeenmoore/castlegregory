@@ -74,7 +74,7 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
    run edge to edge so it reads as a ribbon rather than a boxed row */
 .megarow{background:var(--sea);border-bottom:0}
 .megarow .wrap{max-width:none;padding:0 48px;display:grid;grid-template-columns:repeat(6,1fr)}
-.megarow a{display:block;padding:38px 22px;text-decoration:none;
+.megarow a{display:block;padding:22px 22px;text-decoration:none;
   border-left:1px solid rgba(255,255,255,.22);transition:background .25s}
 .megarow a:first-child{border-left:0}
 .megarow a:hover{background:rgba(255,255,255,.09)}
@@ -87,7 +87,7 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 .megarow .sub .dsh{font-size:1.05em}
 .megarow a:hover span{color:#fff}
 @media(max-width:900px){.megarow .wrap{grid-template-columns:1fr 1fr;padding:0 32px}
-  .megarow a{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding:26px 18px}
+  .megarow a{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding:14px 18px}
   .megarow a:nth-child(-n+2){border-top:0}
   .megarow a:nth-child(even){border-left:1px solid rgba(255,255,255,.22)}}
 @media(max-width:560px){.megarow .wrap{padding:0 24px}}
@@ -254,15 +254,35 @@ body.floatnav .ehero-open{padding-top:calc(72px + var(--navh))}
 /* the peninsula, held to the width of the text column so the whole photograph is visible */
 .visitband{margin:0 0 10px}
 .visitband .vbframe{position:relative;overflow:hidden}
-.visitband img{display:block;width:100%;height:auto}
-/* phone: too narrow to show it whole, so it drifts across and back, as the hero does */
+.visitband .vbmove{position:relative;width:100%;aspect-ratio:2000/1066}
+.visitband img{display:block;position:absolute;inset:0;width:100%;height:100%}
+/* the place names ride on the photograph as live type, so they stay sharp at any size */
+.vbmap{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* set in map units, exactly as the master artwork: every position was tuned at this size */
+.vbmap text{font-family:var(--sans);font-size:18px;font-weight:600;letter-spacing:3px;
+  fill:#fff;paint-order:stroke;stroke:rgba(8,18,28,.6);stroke-width:3.4px;stroke-linejoin:round}
+.vbmap line{stroke:rgba(255,255,255,.85);stroke-width:1.1;fill:none}
+.vbmap circle{fill:#fff;stroke:rgba(8,18,28,.55);stroke-width:.8}
+.vbmap line.vcase{stroke:rgba(255,255,255,.92);stroke-width:3.6}
+.vbmap circle.vcase{fill:rgba(255,255,255,.92);stroke:none}
+.vbmap line.venue{stroke:#335256;stroke-width:1.7}
+.vbmap circle.venue{fill:#335256;stroke:none}
+.vbmap text.venue{stroke:none;fill:#fff;font-size:20.5px;letter-spacing:3.3px}
+.vbmap rect.vbox{fill:#335256}
+.vbmap text.big{font-size:20.5px;letter-spacing:3.3px}
+.vbmap text.peak{fill:#000;stroke:rgba(250,247,240,.9);stroke-width:3.6px;
+  font-size:20.5px;letter-spacing:3.3px}
+/* phone: too narrow to show it whole, so it drifts across and back, as the hero does.
+   the labels come off there: 2000 units of map into 334 css pixels renders the type at
+   about three pixels, which is worse than no labels at all. a reduced set is a separate job. */
 @media(max-width:700px){
+  .vbmap{display:none}
   .visitband .vbframe{aspect-ratio:1/1}
-  .visitband img{position:absolute;left:0;top:0;height:100%;width:auto;max-width:none;
+  .visitband .vbmove{position:absolute;left:0;top:0;height:100%;width:auto;
     transform:translateX(0);animation:visitpan 30s ease-in-out infinite alternate;will-change:transform}
 }
 @keyframes visitpan{from{transform:translateX(0)}to{transform:translateX(-42%)}}
-@media(prefers-reduced-motion:reduce){.visitband img{animation:none;transform:translateX(-21%)}}
+@media(prefers-reduced-motion:reduce){.visitband .vbmove{animation:none;transform:translateX(-21%)}}
 .facts{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}
 .fact{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 18px;font-size:.9rem}
 .fact b{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:2px}
