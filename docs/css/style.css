@@ -70,25 +70,27 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
   line-height:1;transition:color .2s,letter-spacing .25s}
 .menu-overlay a:hover{color:var(--orange);letter-spacing:.26em}
 
-/* megarow — four two-line menu tiles under the hero */
-.megarow{border-bottom:1px solid var(--line);background:var(--paper)}
-.megarow .wrap{display:grid;grid-template-columns:repeat(6,1fr)}
-.megarow a{display:block;padding:38px 26px;text-decoration:none;border-left:1px solid var(--line);
-  transition:background .25s}
+/* megarow — six two-line menu tiles under the hero, as one solid band of sea colour,
+   run edge to edge so it reads as a ribbon rather than a boxed row */
+.megarow{background:var(--sea);border-bottom:0}
+.megarow .wrap{max-width:none;padding:0 48px;display:grid;grid-template-columns:repeat(6,1fr)}
+.megarow a{display:block;padding:38px 22px;text-decoration:none;
+  border-left:1px solid rgba(255,255,255,.22);transition:background .25s}
 .megarow a:first-child{border-left:0}
-.megarow a:hover{background:#f3eee3}
+.megarow a:hover{background:rgba(255,255,255,.09)}
 .megarow span{display:block;font-family:var(--sans);font-size:clamp(.95rem,1.34vw,1.22rem);
-  font-weight:600;line-height:1.38;color:var(--head);letter-spacing:-.01em;white-space:nowrap;transition:color .2s}
+  font-weight:600;line-height:1.38;color:#fff;letter-spacing:-.01em;white-space:nowrap;transition:color .2s}
 .megarow .sub span{display:inline;line-height:inherit}
 .megarow .sub .sp{font-size:.3em}
 .megarow .sub .dsh{font-size:1.15em}
-.megarow span.sub{color:var(--head);font-weight:600}
+.megarow span.sub{color:#fff;font-weight:600}
 .megarow .sub .dsh{font-size:1.05em}
-.megarow a:hover span{color:var(--orange)}
-@media(max-width:900px){.megarow .wrap{grid-template-columns:1fr 1fr}
-  .megarow a{border-left:0;border-top:1px solid var(--line);padding:26px 20px}
+.megarow a:hover span{color:#fff}
+@media(max-width:900px){.megarow .wrap{grid-template-columns:1fr 1fr;padding:0 32px}
+  .megarow a{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding:26px 18px}
   .megarow a:nth-child(-n+2){border-top:0}
-  .megarow a:nth-child(even){border-left:1px solid var(--line)}}
+  .megarow a:nth-child(even){border-left:1px solid rgba(255,255,255,.22)}}
+@media(max-width:560px){.megarow .wrap{padding:0 24px}}
 
 @media(max-width:560px){
   .nav{flex-wrap:wrap;justify-content:center;gap:6px 0;padding:12px 0}
