@@ -4,7 +4,7 @@
   --line:#e8e1d3; --line-soft:#efe9dd; --head:#605a4b;
   /* the teal of the water in the hero photograph. --sea is the quiet one, for labels and
      marks you cannot click; --sea-lit is brighter and more saturated, for anything you can. */
-  --sea:#40676b; --sea-lit:#0b7a86;
+  --sea:#40676b; --sea-lit:#0b7a86; --sea-tile:#4a767c;
   --orange:var(--sea); --blue:var(--sea-lit);
   --green:#38735c; --gold:#a98b3f;
   --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -73,9 +73,9 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 
 /* megarow — six two-line menu tiles under the hero, as one solid band of sea colour,
    run edge to edge so it reads as a ribbon rather than a boxed row */
-.megarow{background:var(--sea);border-bottom:0}
+.megarow{background:var(--sea-tile);border-bottom:0}
 .megarow .wrap{max-width:none;padding:0 48px;display:grid;grid-template-columns:repeat(6,1fr)}
-.megarow a{display:block;padding:7px 22px;text-decoration:none;
+.megarow a{display:block;padding:7px 22px;text-align:center;text-decoration:none;
   border-left:1px solid rgba(255,255,255,.22);transition:background .25s}
 .megarow a:first-child{border-left:0}
 .megarow a:hover{background:rgba(255,255,255,.09)}
@@ -139,11 +139,11 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
 .hero .year{color:#8c4a2f;font-style:italic;font-weight:500;letter-spacing:.02em}
 /* short phones have no room between the strapline and the water, so the logo stays below the text */
 @media(max-width:700px){.hero img.logo{position:static;height:96px;width:auto;display:block;
-  align-self:flex-start;margin:56px 0 0 18px;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
+  align-self:flex-start;margin:104px 0 0 18px;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
 /* taller phones: the logo sits on the mountain, clear of the water. the waterline drifts as the
    photograph pans, so this is measured against its highest point, never its average. */
 @media(max-width:700px) and (min-height:740px){.hero img.logo{position:absolute;left:18px;right:auto;
-  bottom:auto;top:calc(60.5% - 120px);margin:0}}
+  bottom:auto;top:calc(60.5% - 72px);margin:0}}
 /* phone: the strapline breaks after "music" so the place name stays whole */
 .phbr{display:none}
 @media(max-width:700px){.phbr{display:block}}
@@ -246,8 +246,8 @@ section{padding:76px 0}
     var(--paper)}
 .ehero .num{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--orange);font-weight:600}
 /* the session number and date sit above as small caps; the evening's title is the heading */
-.ehero h1{font-family:"Bodoni Moda","Georgia",serif;font-size:clamp(1.14rem,1.75vw,1.42rem);
-  font-weight:500;letter-spacing:.012em;color:var(--head);margin:9px 0 5px;line-height:1.32}
+.ehero h1{font-family:var(--sans);font-size:clamp(1.12rem,1.7vw,1.3rem);font-weight:600;
+  letter-spacing:-.014em;color:var(--head);margin:9px 0 5px;line-height:1.34}
 .ehero .meta{color:var(--muted);font-size:1.08rem;line-height:1.4}
 .fact .cal{color:var(--sea-lit);font-weight:600;text-decoration:none;
   border-bottom:1px solid rgba(11,122,134,.38);padding-bottom:1px;transition:border-color .3s}
