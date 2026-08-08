@@ -6,7 +6,7 @@
      marks you cannot click; --sea-lit is brighter and more saturated, for anything you can. */
   --sea:#40676b; --sea-lit:#0b7a86;
   /* the tile ribbon: sampled from the foreground sand of the hero photograph */
-  --sea-tile:#806f5c;
+  --sea-tile:#7c6b5d;
   --orange:var(--sea); --blue:var(--sea-lit);
   --green:#38735c; --gold:#a98b3f;
   --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
