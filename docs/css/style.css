@@ -6,7 +6,7 @@
      marks you cannot click; --sea-lit is brighter and more saturated, for anything you can. */
   --sea:#40676b; --sea-lit:#0b7a86;
   /* the tile ribbon: sampled from the foreground sand of the hero photograph */
-  --sea-tile:#7a685e;
+  --sea-tile:#806f5c;
   --orange:var(--sea); --blue:var(--sea-lit);
   --green:#38735c; --gold:#a98b3f;
   --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -130,7 +130,7 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 /* home: the hero grows by exactly the height of the vanished bar, so the foot of the
    photograph lands where it always did and the crop simply narrows. */
 body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
-@media(max-width:700px){body.home .hero .hero-inner{padding-top:calc(var(--navh) + 20px)}}
+@media(max-width:700px){body.home .hero .hero-inner{padding-top:calc(var(--navh) + 73px)}}
 .hero img.logo{position:absolute;right:7%;bottom:calc(9% + 48px);height:128px;margin:0;
   filter:drop-shadow(0 10px 30px rgba(0,0,0,.45))}
 .hero .eyebrow{font-size:clamp(.72rem,1.1vw,.9rem);letter-spacing:.3em;text-transform:uppercase;color:#38414f;
@@ -139,13 +139,10 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
 .hero h1{font-family:"Bodoni Moda","Georgia",serif;font-size:clamp(2.2rem,4.8vw,3.8rem);font-weight:500;
   letter-spacing:.07em;line-height:1.08;color:#1b2331;text-shadow:0 1px 20px rgba(250,247,240,.62)}
 .hero .year{color:#8c4a2f;font-style:italic;font-weight:500;letter-spacing:.02em}
-/* short phones have no room between the strapline and the water, so the logo stays below the text */
-@media(max-width:700px){.hero img.logo{position:static;height:96px;width:auto;display:block;
-  align-self:flex-start;margin:104px 0 0 18px;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
-/* taller phones: the logo sits on the mountain, clear of the water. the waterline drifts as the
-   photograph pans, so this is measured against its highest point, never its average. */
-@media(max-width:700px) and (min-height:740px){.hero img.logo{position:absolute;left:18px;right:auto;
-  bottom:auto;top:calc(60.5% - 72px);margin:0}}
+/* phone: the logo takes the top left corner, mirroring the three lines opposite it.
+   same 24px gutter, same 25px from the top, so the two corners answer each other. */
+@media(max-width:700px){.hero img.logo{position:absolute;left:24px;right:auto;top:25px;bottom:auto;
+  height:80px;width:auto;display:block;margin:0;filter:drop-shadow(0 6px 18px rgba(24,21,16,.28))}}
 /* phone: the strapline breaks after "music" so the place name stays whole */
 .phbr{display:none}
 @media(max-width:700px){.phbr{display:block}}
