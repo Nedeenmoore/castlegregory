@@ -81,7 +81,7 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
   border-left:1px solid rgba(255,255,255,.22);transition:background .25s}
 .megarow a:first-child{border-left:0}
 .megarow a:hover{background:rgba(255,255,255,.09)}
-.megarow span{display:block;font-family:var(--sans);font-size:.95rem;font-weight:400;
+.megarow span{display:block;font-family:var(--sans);font-size:.88rem;font-weight:400;
   text-transform:uppercase;letter-spacing:.2em;line-height:1.75;color:#fff;
   white-space:nowrap;transition:color .2s}
 .megarow .sub span{display:inline;line-height:inherit}
