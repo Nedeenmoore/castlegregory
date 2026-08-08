@@ -75,7 +75,10 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 
 /* megarow — six two-line menu tiles under the hero, as one solid band of sea colour,
    run edge to edge so it reads as a ribbon rather than a boxed row */
-.megarow{background:var(--sea-tile);border-bottom:0}
+.megarow{background-color:var(--sea-tile);border-bottom:0;
+  /* a patch of the foreground sand from the hero photograph, shading removed and
+     rebuilt as periodic grain so it repeats without a seam */
+  background-image:url("../img/sand-tile-iso.png");background-repeat:repeat}
 .megarow .wrap{max-width:none;padding:0 48px;display:grid;grid-template-columns:repeat(6,1fr)}
 .megarow a{display:block;padding:7px 22px;text-align:center;text-decoration:none;
   border-left:1px solid rgba(255,255,255,.22);transition:background .25s}
