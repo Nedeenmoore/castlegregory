@@ -465,7 +465,11 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 .yt.nothumb{display:flex;align-items:center;justify-content:center;aspect-ratio:auto;min-height:88px;
   background:linear-gradient(120deg,#20334a,#38735c)}
 .yt .yt-label{color:#faf7f0;font-weight:600;letter-spacing:.04em}
-.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+/* the mark is decoration: the tap belongs to the frame around it, and both the mark
+   and the thumbnail stand down as soon as the player is in place. */
+.yt .playbtn,.yt img{pointer-events:none}
+.yt.on .playbtn,.yt.on img{display:none}
 .yt.nothumb.on{aspect-ratio:16/9}
 .embed-cap{font-size:.85rem;color:var(--muted);margin:8px 0 4px}
 .pullquote{margin:16px 0 24px;padding:0 2em 0 2.6em;border:0;text-align:left}
@@ -566,13 +570,13 @@ figure.facsimile figcaption{font-size:.76rem;color:var(--muted);margin-top:14px;
 figure.promo{margin:26px 0 34px;position:relative}
 /* phones draw a huge play triangle over a video with controls. we take the controls off
    until playback starts and put a small mark of our own in the corner instead. */
-.playbtn{position:absolute;left:14px;bottom:14px;z-index:2;display:none;align-items:center;
+.vidplay{position:absolute;left:14px;bottom:14px;z-index:2;display:none;align-items:center;
   justify-content:center;width:50px;height:50px;border-radius:50%;cursor:pointer;padding:0;
   background:rgba(250,247,240,.9);border:1px solid var(--line);
   box-shadow:0 6px 20px rgba(24,21,16,.28);transition:background .25s}
-.playbtn svg{width:22px;height:22px;fill:var(--head);margin-left:2px}
-.playbtn:hover{background:#fff}
-@media(max-width:700px){.playbtn:not([hidden]){display:flex}}
+.vidplay svg{width:22px;height:22px;fill:var(--head);margin-left:2px}
+.vidplay:hover{background:#fff}
+@media(max-width:700px){.vidplay:not([hidden]){display:flex}}
 figure.promo video{width:100%;display:block;border-radius:10px;background:#0e141c;
   border:1px solid var(--line);box-shadow:0 18px 44px rgba(24,21,16,.16)}
 figure.promo figcaption{font-size:.78rem;color:var(--muted);margin-top:10px}
