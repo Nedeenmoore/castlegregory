@@ -45,8 +45,9 @@ body.floatnav.scrolled header{background:rgba(250,247,240,.88);backdrop-filter:b
 body.floatnav.scrolled header .brand{opacity:1;pointer-events:auto}
 body.floatnav.scrolled .burger span{background:var(--ink);filter:none}
 /* the header is sticky, so in-page anchors need room to clear it */
-#about,#events,#musicians,#contact,#visit{scroll-margin-top:116px}
-@media(max-width:700px){#about,#events,#musicians,#contact,#visit{scroll-margin-top:88px}}
+/* land the target just under the sticky bar, with a few pixels tucked behind it, so no
+   sliver of the band above (on the home page, the film) is left showing. */
+#about,#events,#musicians,#contact,#visit{scroll-margin-top:calc(var(--navh) - 12px)}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:26px 0}
 .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
