@@ -188,12 +188,13 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
     radial-gradient(55% 48% at 14% 8%, rgba(91,163,217,.12), transparent 70%),
     radial-gradient(45% 40% at 88% 12%, rgba(212,80,42,.09), transparent 70%),
     var(--paper)}
+/* the film carried a heavy wash while a line of type sat on it. the type has moved to the
+   sessions below, so the wash is now only a soft edge into the paper above and beneath. */
 .intro-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 26%;
-  opacity:.55;pointer-events:none;z-index:0}
+  opacity:.9;pointer-events:none;z-index:0}
 .intro-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    radial-gradient(58% 118% at 50% 50%, rgba(250,247,240,.80) 0%, rgba(250,247,240,.52) 52%, rgba(250,247,240,.10) 100%),
-    linear-gradient(to bottom, rgba(250,247,240,.30), rgba(250,247,240,0) 26%, rgba(250,247,240,0) 74%, rgba(250,247,240,.30))}
+    linear-gradient(to bottom, rgba(250,247,240,.62), rgba(250,247,240,0) 20%, rgba(250,247,240,0) 80%, rgba(250,247,240,.62))}
 .intro .wrap{position:relative;z-index:2;width:100%;padding-top:46px;padding-bottom:40px}
 /* the line of type now sits along the foot of the band, so the sound mark moves up top */
 .sndbtn{position:absolute;right:20px;top:16px;z-index:3;display:inline-flex;align-items:center;gap:9px;
@@ -212,15 +213,17 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
   .intro-vid{object-position:0% 50%;animation:bandpan 30.1s ease-in-out infinite alternate;
     will-change:object-position}
   .intro-scrim{background:
-    radial-gradient(80% 60% at 50% 50%, rgba(250,247,240,.78) 0%, rgba(250,247,240,.48) 62%, rgba(250,247,240,.06) 100%),
-    linear-gradient(to bottom, rgba(250,247,240,.26), rgba(250,247,240,0) 24%, rgba(250,247,240,0) 76%, rgba(250,247,240,.26))}}
+    linear-gradient(to bottom, rgba(250,247,240,.58), rgba(250,247,240,0) 22%, rgba(250,247,240,0) 78%, rgba(250,247,240,.58))}}
 @media(prefers-reduced-motion:reduce){.intro-vid{display:none;animation:none}}
 @media(max-width:700px){.intro{min-height:min(52vh,380px);margin-top:34px}
   .intro .wrap{padding-top:34px;padding-bottom:28px}}
-/* one line along the foot of the film, in caps, small enough to sit quietly */
-.leadline{margin:0 auto;text-transform:uppercase;font-weight:600;letter-spacing:.15em;
-  line-height:1.9;color:var(--ink);font-size:clamp(.68rem,.86vw,.82rem);text-wrap:balance}
-@media(max-width:700px){.leadline{font-size:.74rem;letter-spacing:.12em;max-width:22em}}
+/* the sessions read as one element: a line of type above, the three cards, a line below,
+   the whole thing closed top and bottom by a hairline. */
+.evhead{margin:0 0 38px;padding-bottom:26px;border-bottom:1px solid var(--line);text-align:center;
+  font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.17em;
+  line-height:1.9;color:var(--head);font-size:clamp(.72rem,.9vw,.86rem);text-wrap:balance}
+@media(max-width:700px){.evhead{margin-bottom:28px;padding-bottom:22px;font-size:.74rem;
+  letter-spacing:.12em}}
 .intro .dates{margin-top:30px;display:inline-block;font-size:.78rem;letter-spacing:.26em;
   text-transform:uppercase;color:var(--green);font-weight:600}
 
@@ -385,15 +388,6 @@ form.contact button{margin-top:34px;font-family:var(--sans);font-weight:600;font
   transition:background .3s,color .3s,letter-spacing .3s}
 form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacing:.28em}
 
-/* the artistic directors, set in the same face and size as "The musicians" above them */
-.artdir{margin:44px 0 0;font-family:var(--sans);font-size:.95rem;font-weight:600;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--head);line-height:2.1}
-.artdir a{color:var(--head);text-decoration:none;white-space:nowrap;
-  border-bottom:1px solid rgba(11,122,134,.4);
-  transition:color .2s,border-color .2s}
-.artdir a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
-@media(max-width:700px){.artdir{font-size:.82rem;letter-spacing:.2em;margin-top:34px}}
-
 /* the sign-up: one sentence, one field, one button */
 .signup{max-width:760px;margin:0 auto;text-align:center}
 .signup p{margin:0 auto;max-width:40em;font-size:1rem;line-height:1.78;color:var(--ink-soft)}
@@ -424,6 +418,10 @@ footer{background:var(--ink);color:#cfc8ba;margin-top:60px;padding:64px 0 48px;f
 .foot .fmid{line-height:1.9}
 .foot .fmid b{color:#faf7f0;font-family:"Bodoni Moda","Georgia",serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.95rem;display:block;margin-bottom:4px}
 .foot a{color:#e8e1d3;text-decoration:none;border-bottom:1px solid rgba(232,225,211,.3)}
+/* the artistic directors sit in the footer, in the small print under the name */
+.fdir{display:inline-block;font-size:.84rem;line-height:1.9;color:#b9b1a1}
+.fdir a{border-bottom:0;color:#cfc8ba;white-space:nowrap}
+.fdir a:hover{color:var(--sea-lit);border-color:transparent}
 .fnav{display:inline-block;margin-top:6px;font-size:.82rem;line-height:2}
 .fnav a{border-bottom:0;margin:0 2px}
 .fnav a:hover{color:var(--sea-lit)}
