@@ -399,9 +399,9 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
   color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);
   border-radius:0;padding:10px 0 9px;outline:none;transition:border-color .3s}
 .signup input[type=email]:focus{border-bottom-color:var(--sea-lit)}
-.signup button{font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.24em;
+.signup button{font-family:var(--sans);font-weight:600;font-size:.64rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);
-  border-radius:0;padding:14px 36px;cursor:pointer;
+  border-radius:0;padding:10px 24px;cursor:pointer;
   transition:background .3s,color .3s,letter-spacing .3s}
 .signup button:hover{background:var(--ink);color:var(--paper);letter-spacing:.28em}
 @media(max-width:560px){
@@ -419,7 +419,7 @@ footer{background:var(--ink);color:#cfc8ba;margin-top:60px;padding:64px 0 48px;f
 .foot .fmid b{color:#faf7f0;font-family:"Bodoni Moda","Georgia",serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.95rem;display:block;margin-bottom:4px}
 .foot a{color:#e8e1d3;text-decoration:none;border-bottom:1px solid rgba(232,225,211,.3)}
 /* the artistic directors sit in the footer, in the small print under the name */
-.fdir{display:inline-block;font-size:.84rem;line-height:1.9;color:#b9b1a1}
+.fdir{display:inline-block;font-size:inherit;line-height:1.9;color:#cfc8ba}
 .fdir a{border-bottom:0;color:#cfc8ba;white-space:nowrap}
 .fdir a:hover{color:var(--sea-lit);border-color:transparent}
 .fnav{display:inline-block;margin-top:6px;font-size:.82rem;line-height:2}
