@@ -145,6 +145,14 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 /* home: the hero grows by exactly the height of the vanished bar, so the foot of the
    photograph lands where it always did and the crop simply narrows. */
 body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
+/* laptops and up: the photograph and the tile ribbon together occupy exactly one screen,
+   so the ribbon lands on the bottom edge whatever the machine's aspect ratio. the photo
+   is set with cover, so a taller box simply crops more off the sides. */
+@media(min-width:701px){
+  body.home .screen1{height:100vh;display:flex;flex-direction:column}
+  body.home .screen1 .hero{flex:1 1 auto;min-height:0}
+  body.home .screen1 .megarow{flex:0 0 auto}
+}
 @media(max-width:700px){body.home .hero .hero-inner{padding-top:calc(var(--navh) + 73px)}}
 .hero img.logo{position:absolute;right:7%;bottom:calc(9% + 48px);height:128px;margin:0;
   filter:drop-shadow(0 10px 30px rgba(0,0,0,.45))}
@@ -172,7 +180,9 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
 }
 
 /* intro band under the hero */
-.intro{position:relative;overflow:hidden;padding:58px 0 66px;text-align:center;
+/* half an inch of paper between the tile ribbon and the film */
+.intro{position:relative;overflow:hidden;padding:0;text-align:center;margin-top:48px;
+  min-height:min(56vh,470px);display:flex;align-items:flex-end;
   border-bottom:1px solid var(--line);
   background:
     radial-gradient(55% 48% at 14% 8%, rgba(91,163,217,.12), transparent 70%),
@@ -184,8 +194,9 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
   background:
     radial-gradient(58% 118% at 50% 50%, rgba(250,247,240,.80) 0%, rgba(250,247,240,.52) 52%, rgba(250,247,240,.10) 100%),
     linear-gradient(to bottom, rgba(250,247,240,.30), rgba(250,247,240,0) 26%, rgba(250,247,240,0) 74%, rgba(250,247,240,.30))}
-.intro .wrap{position:relative;z-index:2}
-.sndbtn{position:absolute;right:20px;bottom:16px;z-index:3;display:inline-flex;align-items:center;gap:9px;
+.intro .wrap{position:relative;z-index:2;width:100%;padding-top:46px;padding-bottom:40px}
+/* the line of type now sits along the foot of the band, so the sound mark moves up top */
+.sndbtn{position:absolute;right:20px;top:16px;z-index:3;display:inline-flex;align-items:center;gap:9px;
   font-family:var(--sans);font-size:.61rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
   color:var(--head);background:rgba(250,247,240,.72);border:1px solid var(--line);border-radius:0;
   padding:8px 13px;cursor:pointer;line-height:1;
@@ -193,7 +204,7 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
 .sndbtn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);letter-spacing:.26em}
 .sndbtn[hidden]{display:none}
 .sndbtn svg{width:13px;height:13px;flex:0 0 13px;display:block}
-@media(max-width:760px){.sndbtn{right:12px;bottom:12px;font-size:.58rem;padding:7px 11px}}
+@media(max-width:760px){.sndbtn{right:12px;top:12px;font-size:.58rem;padding:7px 11px}}
 @keyframes bandpan{from{object-position:0% 50%}to{object-position:100% 50%}}
 @media(max-width:699px){
   /* the clip is far wider than the band, so drift across it: the full sweep takes
@@ -204,17 +215,12 @@ body.home .hero{min-height:calc(min(62vh,640px) + var(--navh))}
     radial-gradient(80% 60% at 50% 50%, rgba(250,247,240,.78) 0%, rgba(250,247,240,.48) 62%, rgba(250,247,240,.06) 100%),
     linear-gradient(to bottom, rgba(250,247,240,.26), rgba(250,247,240,0) 24%, rgba(250,247,240,0) 76%, rgba(250,247,240,.26))}}
 @media(prefers-reduced-motion:reduce){.intro-vid{display:none;animation:none}}
-/* three claims, one to a column, divided by hairlines. set in caps because each is
-   short enough to take it, and because it echoes the caps on the tile ribbon above. */
-.lead3{max-width:1290px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
-.lead3 p{margin:0;padding:2px 26px;text-align:center;
-  display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(24,21,16,.17);
-  font-size:clamp(.86rem,1.12vw,1.01rem);font-weight:600;letter-spacing:.14em;line-height:1.9;
-  text-transform:uppercase;color:var(--ink);text-wrap:balance}
-.lead3 p:first-child{border-left:0}
-@media(max-width:860px){
-  .lead3{grid-template-columns:1fr;gap:24px;max-width:24em}
-  .lead3 p{border-left:0;padding:0 6px;font-size:.85rem;letter-spacing:.13em;line-height:1.82}}
+@media(max-width:700px){.intro{min-height:min(52vh,380px);margin-top:34px}
+  .intro .wrap{padding-top:34px;padding-bottom:28px}}
+/* one line along the foot of the film, in caps, small enough to sit quietly */
+.leadline{margin:0 auto;text-transform:uppercase;font-weight:600;letter-spacing:.15em;
+  line-height:1.9;color:var(--ink);font-size:clamp(.68rem,.86vw,.82rem);text-wrap:balance}
+@media(max-width:700px){.leadline{font-size:.74rem;letter-spacing:.12em;max-width:22em}}
 .intro .dates{margin-top:30px;display:inline-block;font-size:.78rem;letter-spacing:.26em;
   text-transform:uppercase;color:var(--green);font-weight:600}
 
@@ -379,6 +385,37 @@ form.contact button{margin-top:34px;font-family:var(--sans);font-weight:600;font
   transition:background .3s,color .3s,letter-spacing .3s}
 form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacing:.28em}
 
+/* the artistic directors, set in the same face and size as "The musicians" above them */
+.artdir{margin:44px 0 0;font-family:var(--sans);font-size:.95rem;font-weight:600;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--head);line-height:2.1}
+.artdir a{color:var(--head);text-decoration:none;white-space:nowrap;
+  border-bottom:1px solid rgba(11,122,134,.4);
+  transition:color .2s,border-color .2s}
+.artdir a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
+@media(max-width:700px){.artdir{font-size:.82rem;letter-spacing:.2em;margin-top:34px}}
+
+/* the sign-up: one sentence, one field, one button */
+.signup{max-width:760px;margin:0 auto;text-align:center}
+.signup p{margin:0 auto;max-width:40em;font-size:1rem;line-height:1.78;color:var(--ink-soft)}
+.signup form{margin-top:30px;display:flex;align-items:center;justify-content:center;gap:16px;
+  flex-wrap:wrap}
+.signup label{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+  font-weight:600}
+.signup input[type=email]{flex:1 1 330px;min-width:0;font-family:var(--sans);font-size:1rem;
+  color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);
+  border-radius:0;padding:10px 0 9px;outline:none;transition:border-color .3s}
+.signup input[type=email]:focus{border-bottom-color:var(--sea-lit)}
+.signup button{font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);
+  border-radius:0;padding:14px 36px;cursor:pointer;
+  transition:background .3s,color .3s,letter-spacing .3s}
+.signup button:hover{background:var(--ink);color:var(--paper);letter-spacing:.28em}
+@media(max-width:560px){
+  .signup form{flex-direction:column;align-items:stretch;gap:6px;margin-top:26px}
+  .signup label{text-align:left}
+  .signup input[type=email]{flex:none;width:100%}
+  .signup button{width:100%;margin-top:16px}}
+
 /* footer */
 footer{background:var(--ink);color:#cfc8ba;margin-top:60px;padding:64px 0 48px;font-size:.9rem}
 .foot{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
@@ -502,17 +539,12 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
   border:1px solid currentColor;border-radius:999px;padding:9px 18px}
 .perf{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink-soft)}
 .perf b{display:block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-/* three panels under the session cards. one idea each, running the full width of the row
-   above, so the eye reads them as a footing to the sessions rather than as a paragraph. */
-.notes3{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.n3{border:1px solid var(--line);background:rgba(255,255,255,.46);padding:22px 24px 24px}
-.n3label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
-  font-weight:600;line-height:1.5}
-.n3 p{margin:11px 0 0;font-size:.93rem;line-height:1.7;color:var(--ink-soft)}
-.n3 a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
-.n3 a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
-@media(max-width:900px){.notes3{grid-template-columns:1fr;gap:0}
-  .n3{border:0;border-top:1px solid var(--line);padding:22px 0 20px}}
+/* the footing to the session cards: one paragraph, the full width of the row above */
+.undernote{margin:38px 0 0;padding-top:28px;border-top:1px solid var(--line);text-align:center;
+  font-size:.97rem;line-height:1.78;color:var(--ink-soft)}
+.undernote a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
+.undernote a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
+@media(max-width:700px){.undernote{margin-top:30px;padding-top:24px;font-size:.93rem}}
 
 /* composer pages */
 .cpage{max-width:820px;margin:0 auto;padding:32px 28px 76px}
@@ -601,7 +633,7 @@ figure.promo figcaption{font-size:.78rem;color:var(--muted);margin-top:10px}
 /* desktop: tighter rhythm (mobile keeps its roomier spacing) */
 @media(min-width:900px){
   section{padding:54px 0}
-  .intro{padding:40px 0 46px}
+  .intro .wrap{padding-top:40px;padding-bottom:36px}
   .intro .dates{margin-top:26px}
   .sec-head{margin-bottom:26px}
   .events{gap:18px}
