@@ -490,19 +490,23 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 .ev-label{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);font-weight:600}
 .ev h3{font-family:var(--sans);font-size:1.22rem;font-weight:600;line-height:1.38;
   letter-spacing:-.01em;color:var(--head);margin:12px 0 0;padding-right:74px}
-.ev-meta{margin-top:14px;font-size:.86rem;line-height:1.75;color:var(--muted)}
-.ev-prog{margin-top:16px;font-size:.93rem;line-height:1.6;color:var(--ink-soft);flex:1}
+/* the time sits directly beneath the calendar chit, in the chit's own colour */
+.ev-time{position:absolute;top:80px;right:58px;width:66px;text-align:center;
+  font-size:.8rem;font-weight:600;letter-spacing:.02em;color:var(--orange)}
+.ev-prog{margin-top:34px;font-size:.93rem;line-height:1.6;color:var(--ink-soft);flex:1;
+  padding-right:74px}
 .ev-free{margin-top:16px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
 .ev-go{margin-top:16px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;
   font-weight:600;color:var(--blue);transition:color .2s}
 .ev-go span{display:inline-block;transition:transform .28s}
 .ev:hover .ev-go{color:var(--sea-lit)}
 .ev:hover .ev-go span{transform:translateX(6px)}
-@media(min-width:761px) and (max-width:1010px){.ev-cal{right:10px}}
+@media(min-width:761px) and (max-width:1010px){.ev-cal,.ev-time{right:10px}}
 @media(max-width:760px){
   .ev{border-left:0;border-top:1px solid var(--line);padding:26px 0 8px}
   .ev:first-child{border-top:0;padding-top:8px}
   .ev-cal{top:12px;width:60px;height:68px}
+  .ev-time{top:86px;width:60px}
 }
 
 /* venues: editorial columns, no card chrome */
