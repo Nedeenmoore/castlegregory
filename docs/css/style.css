@@ -229,6 +229,9 @@ body.home .screen1 .megarow{flex:0 0 auto}
 
 /* sections */
 section{padding:76px 0}
+/* phone: the sections were carrying laptop-sized air, which stacked two paddings into a
+   150px hole between every band. half that reads as a break without reading as a gap. */
+@media(max-width:700px){section{padding:44px 0}}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:38px;gap:16px;flex-wrap:wrap}
 .sec-head h2{font-family:var(--sans);font-size:.95rem;font-weight:600;letter-spacing:.24em;
   text-transform:uppercase;color:var(--head)}
@@ -505,8 +508,9 @@ p.sum.nodrop::first-letter{font-size:inherit;float:none;padding:0;color:inherit;
 @media(max-width:760px){
   .ev{border-left:0;border-top:1px solid var(--line);padding:26px 0 8px}
   .ev:first-child{border-top:0;padding-top:8px}
-  .ev-cal{top:12px;width:60px;height:68px}
-  .ev-time{top:86px;width:60px}
+  /* phone: the chit takes the right edge of the card, clear of the venue name */
+  .ev-cal{top:12px;width:60px;height:68px;right:0}
+  .ev-time{top:86px;width:60px;right:0}
 }
 
 /* venues: editorial columns, no card chrome */
