@@ -17,6 +17,10 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;
   -webkit-font-smoothing:antialiased;font-size:16.5px}
 .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+/* every <img> carries width and height attributes so the page does not jump while
+   pictures load. those attributes are presentational hints, so reset both axes to auto
+   here and let each component set the one dimension it actually cares about. */
+img{width:auto;height:auto;max-width:100%}
 a{color:inherit}
 ::selection{background:#f3d8cd}
 
@@ -340,7 +344,10 @@ body.floatnav .ehero-open{padding-top:calc(30px + var(--navh))}
 .prog-item:hover{background:#f4efe4;padding-left:18px}
 .prog-item .cmp{flex:0 0 215px;font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:-.01em;color:var(--head)}
 .prog-item .ttl{flex:1;font-size:.98rem;color:var(--ink-soft)}
-.prog-item .arrow{color:var(--blue);font-size:.85rem;white-space:nowrap}
+/* the individual links stay unbroken, but the line of them may wrap: on a narrow phone a
+   listing with two long links was pushing the page sideways. */
+.prog-item .arrow{color:var(--blue);font-size:.85rem;white-space:normal}
+.prog-item .arrow a{white-space:nowrap}
 @media(max-width:640px){.prog-item{flex-direction:column;gap:4px}.prog-item .cmp{flex:none}}
 
 /* piece page */
@@ -416,9 +423,9 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
 
 /* footer */
 footer{background:var(--ink);color:#cfc8ba;margin-top:60px;padding:64px 0 48px;font-size:.9rem}
-.foot{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center}
+.foot{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;justify-items:start}
 @media(max-width:720px){.foot{grid-template-columns:1fr;text-align:center;justify-items:center}}
-.foot img{height:74px;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
+.foot img{height:74px;width:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.4))}
 .foot .fmid{line-height:1.9}
 .foot .fmid b{color:#faf7f0;font-family:"Bodoni Moda","Georgia",serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.95rem;display:block;margin-bottom:4px}
 .foot a{color:#e8e1d3;text-decoration:none;border-bottom:1px solid rgba(232,225,211,.3)}
