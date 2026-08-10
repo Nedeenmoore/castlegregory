@@ -421,6 +421,52 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
   .signup input[type=email]{flex:none;width:100%}
   .signup button{width:100%;margin-top:16px}}
 
+
+/* the seven visitor guides behind Plan Your Visit */
+.ghead{font-family:var(--sans);font-size:.95rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--head);margin:52px 0 18px;padding-top:22px;
+  border-top:1px solid var(--line);line-height:1.6}
+.gsub{font-family:var(--sans);font-size:1.05rem;font-weight:600;letter-spacing:-.01em;
+  color:var(--head);margin:30px 0 6px;line-height:1.4}
+.cpage .ghead + p.essay,.cpage .gsub + p.essay{margin-top:0}
+.gback{margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-size:.82rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.gback a{color:var(--blue);text-decoration:none}
+.gback a:hover{color:var(--sea-lit)}
+/* the guide index on Plan Your Visit */
+/* a fixed column count at each width, so the dividers can be turned off on the first
+   card of every row rather than only the first card of the grid. */
+.guides{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.guides a{display:block;padding:18px 26px 22px;border-left:1px solid var(--line);text-decoration:none;
+  color:inherit;transition:background .3s}
+.guides a:nth-child(4n+1){border-left:0;padding-left:0}
+.guides a:nth-child(n+5){border-top:1px solid var(--line);margin-top:-1px;padding-top:30px}
+.guides a:hover{background:linear-gradient(180deg,rgba(64,103,107,.05),transparent 70%)}
+@media(max-width:1100px){
+  .guides{grid-template-columns:repeat(3,1fr)}
+  .guides a{border-left:1px solid var(--line);padding-left:26px}
+  .guides a:nth-child(4n+1){border-left:1px solid var(--line);padding-left:26px}
+  .guides a:nth-child(3n+1){border-left:0;padding-left:0}
+  .guides a:nth-child(n+4){border-top:1px solid var(--line);margin-top:-1px;padding-top:30px}
+  .guides a:nth-child(-n+3){border-top:0;margin-top:0;padding-top:18px}}
+@media(max-width:860px){
+  .guides{grid-template-columns:repeat(2,1fr)}
+  .guides a:nth-child(3n+1),.guides a:nth-child(4n+1){border-left:1px solid var(--line);padding-left:26px}
+  .guides a:nth-child(odd){border-left:0;padding-left:0}
+  .guides a:nth-child(n+3){border-top:1px solid var(--line);margin-top:-1px;padding-top:30px}
+  .guides a:nth-child(-n+2){border-top:0;margin-top:0;padding-top:18px}}
+.guides .gt{display:block;font-family:var(--sans);font-size:1.06rem;font-weight:600;
+  letter-spacing:-.01em;color:var(--head);line-height:1.38}
+.guides .gd{display:block;margin-top:9px;font-size:.9rem;line-height:1.65;color:var(--ink-soft)}
+.guides .gg{display:block;margin-top:13px;font-size:.78rem;letter-spacing:.14em;
+  text-transform:uppercase;font-weight:600;color:var(--blue)}
+@media(max-width:760px){
+  .guides{grid-template-columns:1fr}
+  .guides a,.guides a:nth-child(odd),.guides a:nth-child(3n+1),.guides a:nth-child(4n+1){
+    border-left:0;padding:22px 0 18px;margin-top:0;border-top:1px solid var(--line)}
+  .guides a:first-child{border-top:0;padding-top:6px}}
+@media(max-width:700px){.ghead{margin-top:38px;font-size:.86rem;letter-spacing:.16em}}
+
 /* footer */
 footer{background:var(--ink);color:#cfc8ba;margin-top:60px;padding:64px 0 48px;font-size:.9rem}
 .foot{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;justify-items:start}
