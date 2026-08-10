@@ -433,6 +433,7 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
   letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .gback a{color:var(--blue);text-decoration:none}
 .gback a:hover{color:var(--sea-lit)}
+.venue .vmore{display:block;margin-top:13px}
 /* the guide index on Plan Your Visit */
 /* a fixed column count at each width, so the dividers can be turned off on the first
    card of every row rather than only the first card of the grid. */
