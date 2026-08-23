@@ -84,7 +84,8 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
   /* a patch of the foreground sand from the hero photograph, shading removed and
      rebuilt as periodic grain so it repeats without a seam */
   background-image:url("../img/sand-nano.png");background-repeat:repeat;background-size:43px 43px}
-.megarow .wrap{max-width:none;padding:0 48px;display:grid;grid-template-columns:repeat(6,1fr)}
+.megarow .wrap{max-width:none;padding:0 48px;display:grid;
+  grid-auto-flow:column;grid-auto-columns:1fr}
 .megarow a{display:block;padding:7px 22px;text-align:center;text-decoration:none;
   border-left:1px solid rgba(255,255,255,.22);transition:background .25s}
 .megarow a:first-child{border-left:0}
@@ -100,11 +101,14 @@ body.menu-open header{background:var(--paper);backdrop-filter:none;border-bottom
 .megarow a:hover span{color:#fff}
 /* the caps setting is wide, so the ribbon steps down 6 -> 3 -> 2 columns and then
    tightens the type, rather than letting the labels run off the side of the screen */
-@media(max-width:1199px){.megarow .wrap{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1199px){.megarow .wrap{grid-auto-flow:row;grid-template-columns:repeat(3,1fr)}
+  /* an odd tile left over on the last row widens instead of leaving a gap */
+  .megarow a:last-child:nth-child(3n+2){grid-column:span 2}
   .megarow a{border-left:1px solid rgba(255,255,255,.22);border-top:0;padding:12px 18px}
   .megarow a:nth-child(3n+1){border-left:0}
   .megarow a:nth-child(n+4){border-top:1px solid rgba(255,255,255,.22)}}
-@media(max-width:900px){.megarow .wrap{grid-template-columns:1fr 1fr;padding:0 32px}
+@media(max-width:900px){.megarow .wrap{grid-auto-flow:row;grid-template-columns:1fr 1fr;padding:0 32px}
+  .megarow a:last-child:nth-child(odd){grid-column:1/-1}
   .megarow a{border-left:0}
   .megarow a:nth-child(even){border-left:1px solid rgba(255,255,255,.22)}
   .megarow a:nth-child(n+3){border-top:1px solid rgba(255,255,255,.22)}
@@ -433,6 +437,25 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
   letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .gback a{color:var(--blue);text-decoration:none}
 .gback a:hover{color:var(--sea-lit)}
+/* "Near Castlegregory": the line between the village and everything a drive away */
+.ghead.nearby{margin-top:56px;padding-top:26px;border-top:2px solid var(--line)}
+/* related reading at the foot of a guide page, so the pages link to each other
+   rather than only back to the index */
+.grel{margin-top:54px;padding-top:26px;border-top:1px solid var(--line)}
+.grel h2{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;margin:0 0 16px}
+.grel ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.grel li{margin:0}
+.grel a{color:var(--blue);text-decoration:none;font-weight:600;font-size:1rem}
+.grel a:hover{color:var(--sea-lit)}
+.grel span{display:block;color:var(--ink-soft);font-weight:400;font-size:.93rem;
+  line-height:1.6;margin-top:3px}
+@media(min-width:720px){.grel ul{grid-template-columns:1fr 1fr;gap:18px 34px}}
+/* a session-specific travel arrangement, sitting under the facts on an event page */
+.travel{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:.93rem;
+  line-height:1.7;color:var(--ink-soft);max-width:44em}
+.travel a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
+.travel a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
 .venue .vmore{display:block;margin-top:13px}
 /* the guide index on Plan Your Visit */
 /* a fixed column count at each width, so the dividers can be turned off on the first
@@ -467,6 +490,22 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
     border-left:0;padding:22px 0 18px;margin-top:0;border-top:1px solid var(--line)}
   .guides a:first-child{border-top:0;padding-top:6px}}
 @media(max-width:700px){.ghead{margin-top:38px;font-size:.86rem;letter-spacing:.16em}}
+
+
+/* castlegregory.org: a wordmark rather than the festival's violin logo */
+.cgmark{font-family:"Bodoni Moda","Georgia",serif;letter-spacing:.06em}
+.brandtext{font-family:"Bodoni Moda","Georgia",serif;font-size:1rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+body.floatnav .brand .brandtext{color:#1b2331}
+.cgintro{max-width:44em;margin:0 auto}
+.cgintro p{font-size:1.02rem;line-height:1.85;color:var(--ink-soft);margin:0 0 20px}
+.cgintro a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
+.cgintro a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
+/* the announcement of next year's dates, on the festival front page */
+.nextyear{margin:26px auto 0;max-width:38em;text-align:center;font-size:1.02rem;line-height:1.8;
+  color:var(--ink-soft)}
+.nextyear a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
+.nextyear a:hover{color:var(--sea-lit);border-color:var(--sea-lit)}
 
 /* footer */
 footer{background:var(--ink);color:#cfc8ba;margin-top:60px;padding:64px 0 48px;font-size:.9rem}
