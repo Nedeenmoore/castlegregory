@@ -437,6 +437,34 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
   letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .gback a{color:var(--blue);text-decoration:none}
 .gback a:hover{color:var(--sea-lit)}
+/* ---------- an individual place: a photograph, a write-up and a facts panel ---------- */
+.pl{max-width:760px;margin:0 auto}
+/* the photograph slot. When no file exists the browser fires onerror and the whole
+   figure is removed, so the page reads as finished rather than broken. */
+.pphoto{margin:34px 0 0}
+.pphoto img{display:block;width:100%;height:auto;border-radius:2px}
+.pphoto figcaption{margin-top:9px;font-size:.8rem;color:var(--muted)}
+.pphoto.nophoto{display:none}
+.pl h2{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;margin:46px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.facts{margin:18px 0 0;display:grid;gap:0}
+.facts div{display:grid;grid-template-columns:11.5em 1fr;gap:18px;padding:11px 0;
+  border-bottom:1px solid var(--line-soft);font-size:.97rem;line-height:1.62}
+.facts dt{font-weight:600;color:var(--head)}
+.facts dd{margin:0;color:var(--ink-soft)}
+.facts a{color:var(--sea-lit);text-decoration:none}
+.facts a:hover{text-decoration:underline}
+.pl .note{margin:18px 0 0;font-size:.93rem;line-height:1.72;color:var(--ink-soft)}
+.checked{margin:40px 0 0;padding:16px 18px;background:#f4efe4;border-radius:2px;
+  font-size:.84rem;line-height:1.66;color:var(--muted)}
+.checked b{color:var(--head)}
+@media(max-width:560px){
+  .facts div{grid-template-columns:1fr;gap:2px;padding:12px 0}
+  .facts dt{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+}
+/* the link from a listing row through to that place's own page */
+.rowmore{color:var(--sea-lit);font-weight:600;text-decoration:none;white-space:nowrap}
+.rowmore:hover{text-decoration:underline}
 /* "Near Castlegregory": the line between the village and everything a drive away */
 .ghead.nearby{margin-top:56px;padding-top:26px;border-top:2px solid var(--line)}
 /* related reading at the foot of a guide page, so the pages link to each other
