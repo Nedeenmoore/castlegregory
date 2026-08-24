@@ -345,7 +345,7 @@ body.floatnav .ehero-open{padding-top:calc(30px + var(--navh))}
 .prog{border-top:1px solid var(--line)}
 .prog-item{display:flex;align-items:baseline;gap:20px;padding:24px 10px;border-bottom:1px solid var(--line);
   text-decoration:none;transition:background .2s,padding-left .25s}
-.prog-item:hover{background:#f4efe4;padding-left:18px}
+a.prog-item:hover,.prog-item.rowlink:hover{background:#f4efe4;padding-left:18px}
 .prog-item .cmp{flex:0 0 215px;font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:-.01em;color:var(--head)}
 .prog-item .ttl{flex:1;font-size:.98rem;color:var(--ink-soft)}
 /* the individual links stay unbroken, but the line of them may wrap: on a narrow phone a
@@ -465,6 +465,14 @@ form.contact button:hover{background:var(--ink);color:var(--paper);letter-spacin
 /* the link from a listing row through to that place's own page */
 .rowmore{color:var(--sea-lit);font-weight:600;text-decoration:none;white-space:nowrap}
 .rowmore:hover{text-decoration:underline}
+/* the row reads as one clickable block, the way a programme piece does. The cue link is
+   stretched across the whole row, and the phone, website and map links are lifted above it
+   so they still work on their own. */
+.prog-item.rowlink{position:relative;cursor:pointer}
+.prog-item.rowlink .rowmore::after{content:"";position:absolute;inset:0;z-index:1}
+.prog-item.rowlink .dur a,
+.prog-item.rowlink .arrow a:not(.rowmore),
+.prog-item.rowlink .arrow .nores{position:relative;z-index:2}
 /* "Near Castlegregory": the line between the village and everything a drive away */
 .ghead.nearby{margin-top:56px;padding-top:26px;border-top:2px solid var(--line)}
 /* related reading at the foot of a guide page, so the pages link to each other
