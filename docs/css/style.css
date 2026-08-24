@@ -280,6 +280,11 @@ section{padding:76px 0}
 .musician .in{color:var(--muted);font-size:.82rem;margin-top:2px}
 .musician .ext{color:var(--blue);font-size:.75rem;margin-top:4px}
 .note{font-size:.85rem;color:var(--muted);margin-top:24px}
+.warn{margin:26px 0 0;padding:18px 22px;background:#f4efe4;border-left:3px solid var(--sea);
+  font-size:1rem;line-height:1.76;color:var(--ink-soft)}
+.warn b{color:var(--ink)}
+.warn a{color:var(--sea-lit);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
+.warn a:hover{border-bottom-color:var(--sea-lit)}
 .note a{color:var(--sea-lit);text-decoration:none;border-bottom:1px solid rgba(11,122,134,.38)}
 .note a:hover{border-bottom-color:var(--sea-lit)}
 
